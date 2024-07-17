@@ -5,7 +5,7 @@ const AppContext = createContext();
 
 export default function AppContextProvider({ children }) {
     const [showForm, setShowForm] = useState(false);
-    const [mode, setMode] = useState(localStorage.getItem("theme"));
+    const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
     const [showDrawer, setShowDrawer] = useState(false);
     const [globalMsg, setGlobalMsg] = useState(null);
     const [auth, setAuth] = useState(null);
@@ -13,6 +13,10 @@ export default function AppContextProvider({ children }) {
     const [data, setData] = useState(
         JSON.parse(localStorage.getItem("data")) || []
     );
+
+    useEffect(() => {
+        localStorage.setItem("theme", mode);
+    }, [mode]);
 
     useEffect(() => {
         localStorage.setItem("data", JSON.stringify(data));

@@ -7,7 +7,6 @@ export default function ThemedContext({ children }) {
     const { mode } = useApp();
 
     const theme = useMemo(() => {
-        localStorage.setItem("theme", mode);
 
         return createTheme({
             palette: {
