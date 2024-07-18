@@ -81,7 +81,7 @@ export default function AppDrawer() {
                         <>
                             <ListItem>
                                 <ListItemButton
-                                    onClick={() => navigate("/profile")}
+                                    onClick={() => navigate("/profile/1")}
                                 >
                                     <ListItemIcon>
                                         <ProfileIcon />

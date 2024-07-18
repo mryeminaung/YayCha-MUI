@@ -12,7 +12,6 @@ export default function Comments() {
                     content: "Initial post content from Alice",
                     name: "Alice",
                 }}
-                remove={() => {}}
             />
             <Item
                 key={2}
@@ -21,7 +20,6 @@ export default function Comments() {
                     content: "A comment from Bob",
                     name: "Bob",
                 }}
-                remove={() => {}}
             />
             <Item
                 key={3}
@@ -30,7 +28,6 @@ export default function Comments() {
                     content: "A comment reply from Alice",
                     name: "Alice",
                 }}
-                remove={() => {}}
             />
 
             <form>

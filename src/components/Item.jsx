@@ -8,13 +8,16 @@ import {
 
 import { green } from "@mui/material/colors";
 import { useApp } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
-export default function Item({ item }) {
+export default function Item({ item, primary }) {
     const { remove } = useApp();
+    const navigate = useNavigate();
 
     return (
         <Card sx={{ mb: 2 }}>
-            <CardContent>
+            {primary && <Box sx={{ height: 50, bgcolor: green[500] }} />}
+            <CardContent onClick={() => navigate("/comments/1")}>
                 <Box
                     sx={{
                         display: "flex",
@@ -41,7 +44,10 @@ export default function Item({ item }) {
                     <IconButton
                         size="small"
                         color="error"
-                        onClick={() => remove(item.id)}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            remove(item.id);
+                        }}
                     >
                         <DeleteIcon fontSize="inherit" />
                     </IconButton>
